@@ -32,8 +32,7 @@ function FoodArt({ type = 'kopi', className = '' }) {
       <ellipse cx="240" cy="182" rx="151" ry="71" fill="#fffaf0" stroke="#d2c7bc" strokeWidth="3"/>
       <ellipse cx="240" cy="184" rx="135" ry="57" fill="#d58a4d"/>
       <g fill="none" stroke="#f5d49c" strokeWidth="5"><path d="M144 175q90-60 175 9t-141 17 117-43"/><path d="M148 194q120 56 179-23M177 150q-55 70 112 61"/></g>
-      <path d="M277 148q64 4 40 47q-36 23-44-3q46 12 20-25" fill="#efb080" stroke="#c96942" strokeWidth="6"/>
-      <ellipse cx="201" cy="176" rx="30" ry="23" fill="#fff6db" transform="rotate(-25 201 176)"/><ellipse cx="202" cy="177" rx="15" ry="15" fill="#f5b943"/>
+      <g fill="#f4d7a2" stroke="#bd955e" strokeWidth="2"><path d="M279 148l34 7-5 31-35-8z"/><path d="M176 164l34-8 8 30-34 9z"/></g>
       <g fill="#65855c"><ellipse cx="231" cy="145" rx="9" ry="23" transform="rotate(55 231 145)"/><ellipse cx="249" cy="149" rx="9" ry="24" transform="rotate(-45 249 149)"/><ellipse cx="228" cy="202" rx="7" ry="19" transform="rotate(65 228 202)"/></g>
       <path d="M338 137l70-72m-55 80l70-72" stroke="#745345" strokeWidth="7" strokeLinecap="round"/>
       <path d="M139 230q98 59 203 0" fill="none" stroke="#67519b" strokeWidth="4"/>
@@ -44,7 +43,7 @@ function FoodArt({ type = 'kopi', className = '' }) {
 const dishes = [
   { type: 'kopi', number: '01', label: 'THE DAILY RITUAL', name: 'Signature Kopi', price: '3.50', description: 'Bold local coffee, a little condensed milk, and a very good reason to take five.', note: 'Your afternoon pick-me-up' },
   { type: 'toast', number: '02', label: 'BETTER TOGETHER', name: 'Kaya Toast Set', price: '6.50', description: 'Golden toast, coconut kaya, soft-boiled eggs, and a cup of kopi. The classic company.', note: 'A little sweet, a little nostalgic' },
-  { type: 'laksa', number: '03', label: 'A BOWL OF COMFORT', name: "Uncle’s Laksa", price: '8.90', description: 'Rice noodles in a fragrant coconut broth, with prawns and a gentle chilli kick.', note: 'Come hungry, leave happy' },
+  { type: 'laksa', number: '03', label: 'A BOWL OF COMFORT', name: "Uncle Joe’s Plant based Laksa", price: '8.90', description: 'A plant-based take on a local favourite. Rice noodles, fragrant coconut broth, and a gentle chilli kick.', note: 'Come hungry, leave happy' },
 ];
 
 function App() {
@@ -95,7 +94,7 @@ function App() {
         </div>
       </section>
       <section id="contact" className="contact-section shell section-space">
-        <div className="contact-card"><div className="contact-copy"><p className="eyebrow">03 / SAVE YOU A LITTLE SPOT</p><h2>Same neighbourhood.<br/><em>See you around?</em></h2><p>For the after-school debrief, the weekend wander,<br className="desktop-break"/> or the “just one kopi” that turns into two.</p><a href="#visit-details" className="button button-dark">Plan your little pause <ArrowRight size={19}/></a></div>
+        <div className="contact-card"><div className="contact-copy"><p className="eyebrow">03 / YOUR AFTER-SCHOOL HANGOUT</p><h2>School’s out.<br/><em>Your spot’s here.</em></h2><p>Bring the crew. Grab a bite. Catch up on everything<br className="desktop-break"/> that happened between the first bell and the last.</p><a href="#visit-details" className="button button-dark">Find your hangout <ArrowRight size={19}/></a></div>
           <div id="visit-details" className="visit-details"><div className="visit-label">COME SAY HELLO <span>✳</span></div><div className="visit-row"><MapPin size={22}/><div><h3>Find us in the neighbourhood</h3><p>7 SCI Street<br/>Joyful State</p></div></div><div className="visit-row"><Clock3 size={22}/><div><h3>Time for a little lepak</h3><dl><div><dt>Every day</dt><dd>10am – 8pm</dd></div></dl></div></div><p className="contact-note">Drop by for your daily kopi, a bite to eat, and a little good company.</p></div>
         </div>
       </section>
