@@ -1,6 +1,8 @@
 # JoFei Cafe — Product Requirements Document
 
-Version: 0.1 · 10 November 2026 · Status: Draft for review
+Version: 0.2 · 10 November 2026 · Status: Draft for review
+
+Owner-confirmed visit details: **7 SCI Street, Joyful State**. Opening hours: **every day, 10am–8pm**. These replace the location and hours assumptions below; remaining menu and operating proposals still require review.
 
 ## 1. Product vision
 

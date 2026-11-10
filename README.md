@@ -20,4 +20,4 @@ npm run preview
 
 Edit copy, proposed prices, and opening hours in `src/main.jsx`. Styling is in `src/styles.css`. The food illustrations are local SVG components and need no external image service. No accounts, tracking, forms, or API credentials are used.
 
-The street address and contact information are intentionally unconfirmed. Prices and hours are explicitly labelled as sample/proposed content. Confirm all business details before publishing.
+Address: 7 SCI Street, Joyful State. Opening hours: every day, 10am–8pm. These details were supplied by the owner. Contact information is not yet supplied; menu prices remain sample content.
