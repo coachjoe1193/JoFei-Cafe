@@ -41,9 +41,9 @@ function FoodArt({ type = 'kopi', className = '' }) {
 }
 
 const dishes = [
-  { type: 'kopi', number: '01', label: 'THE DAILY RITUAL', name: 'Signature Kopi', price: '3.50', description: 'Bold local coffee, a little condensed milk, and a very good reason to take five.', note: 'Your afternoon pick-me-up' },
-  { type: 'toast', number: '02', label: 'BETTER TOGETHER', name: 'Kaya Toast Set', price: '6.50', description: 'Golden toast, coconut kaya, soft-boiled eggs, and a cup of kopi. The classic company.', note: 'A little sweet, a little nostalgic' },
-  { type: 'laksa', number: '03', label: 'A BOWL OF COMFORT', name: "Uncle Joe’s Plant based Laksa", price: '8.90', description: 'A plant-based take on a local favourite. Rice noodles, fragrant coconut broth, and a gentle chilli kick.', note: 'Come hungry, leave happy' },
+  { type: 'kopi', number: '01', label: 'THE DAILY RITUAL', name: 'Signature Kopi', price: '3.00', description: 'Bold local coffee, a little condensed milk, and a very good reason to take five.', note: 'Your afternoon pick-me-up' },
+  { type: 'toast', number: '02', label: 'BETTER TOGETHER', name: 'Kaya Toast Set', price: '5.90', description: 'Golden toast, coconut kaya, soft-boiled eggs, and a cup of kopi. The classic company.', note: 'A little sweet, a little nostalgic' },
+  { type: 'laksa', number: '03', label: 'A BOWL OF COMFORT', name: "Uncle Joe’s Plant based Laksa", price: '7.90', description: 'A plant-based take on a local favourite. Rice noodles, fragrant coconut broth, and a gentle chilli kick.', note: 'Come hungry, leave happy' },
 ];
 
 function App() {
