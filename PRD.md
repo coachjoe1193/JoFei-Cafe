@@ -4,6 +4,8 @@ Version: 0.2 · 10 November 2026 · Status: Draft for review
 
 Owner-confirmed visit details: **7 SCI Street, Joyful State**. Opening hours: **every day, 10am–8pm**. These replace the location and hours assumptions below; remaining menu and operating proposals still require review.
 
+Scope update, 21 November 2026: Owner requested Supabase member authentication. Email/password signup, confirmation, sign-in, reset, and sign-out are now in scope. Collect only email and password through Supabase Auth; no student identifiers or public profile table. The earlier no-accounts launch assumption is superseded. Public confirmation/reset email delivery requires custom SMTP; the built-in sender currently supports project-team testing only.
+
 ## 1. Product vision
 
 JoFei Cafe is a welcoming neighbourhood café in Singapore where students and young people can unwind after school, meet friends, and enjoy affordable drinks and snacks. It should feel easy to visit regularly: casual, comfortable, and close to everyday neighbourhood life.

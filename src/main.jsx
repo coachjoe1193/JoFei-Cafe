@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ArrowUpRight, ArrowRight, Coffee, MapPin, Clock3, Menu, X, Sparkles, Heart } from 'lucide-react';
 import './styles.css';
+import MemberArea from './MemberArea';
 
 function FoodArt({ type = 'kopi', className = '' }) {
   return <svg className={className} viewBox="0 0 480 370" role="img" aria-label={type === 'kopi' ? 'Illustration of a cup of kopi' : type === 'toast' ? 'Illustration of kaya toast and soft-boiled eggs' : 'Illustration of a bowl of laksa'}>
@@ -55,11 +56,11 @@ function App() {
       <div className="shell flex items-center justify-between">
         <a href="#" className="brand" aria-label="JoFei Cafe home"><Coffee size={28} strokeWidth={1.7}/> JoFei <span>Cafe</span></a>
         <nav className="desktop-nav flex items-center gap-9" aria-label="Main navigation">
-          <a href="#about">Our little story</a><a href="#menu">The good stuff</a><a href="#contact" className="nav-visit">Come say hello <ArrowUpRight size={17}/></a>
+          <a href="#about">Our little story</a><a href="#menu">The good stuff</a><a href="#members">Join the crew</a><a href="#contact" className="nav-visit">Come say hello <ArrowUpRight size={17}/></a>
         </nav>
         <button className="mobile-toggle" onClick={() => setMobileOpen(!mobileOpen)} aria-expanded={mobileOpen} aria-controls="mobile-nav" aria-label={mobileOpen ? 'Close navigation' : 'Open navigation'}>{mobileOpen ? <X/> : <Menu/>}</button>
       </div>
-      {mobileOpen && <nav id="mobile-nav" className="mobile-nav" aria-label="Mobile navigation"><a href="#about" onClick={closeMenu}>Our little story</a><a href="#menu" onClick={closeMenu}>The good stuff</a><a href="#contact" onClick={closeMenu}>Come say hello ↗</a></nav>}
+      {mobileOpen && <nav id="mobile-nav" className="mobile-nav" aria-label="Mobile navigation"><a href="#about" onClick={closeMenu}>Our little story</a><a href="#menu" onClick={closeMenu}>The good stuff</a><a href="#members" onClick={closeMenu}>Join the crew</a><a href="#contact" onClick={closeMenu}>Come say hello ↗</a></nav>}
     </header>
     <main id="main">
       <section className="hero shell" aria-labelledby="hero-title">
@@ -98,6 +99,7 @@ function App() {
           <div id="visit-details" className="visit-details"><div className="visit-label">COME SAY HELLO <span>✳</span></div><div className="visit-row"><MapPin size={22}/><div><h3>Find us in the neighbourhood</h3><p>7 SCI Street<br/>Joyful State</p></div></div><div className="visit-row"><Clock3 size={22}/><div><h3>Time for a little lepak</h3><dl><div><dt>Every day</dt><dd>10am – 8pm</dd></div></dl></div></div><p className="contact-note">Drop by for your daily kopi, a bite to eat, and a little good company.</p></div>
         </div>
       </section>
+      <MemberArea/>
     </main>
     <footer className="shell"><div className="footer-top"><a href="#" className="brand"><Coffee size={25}/> JoFei <span>Cafe</span></a><p>A little pause, a lot of good company.</p><a className="back-top" href="#">Back to the top <ArrowUpRight size={17}/></a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} JoFei Cafe · Singapore café concept</span><span>Made for the neighbourhood. With a little love.</span></div></footer>
   </>;
