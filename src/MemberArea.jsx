@@ -14,12 +14,20 @@ export default function MemberArea() {
   const [confirmation, setConfirmation] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [googleReady, setGoogleReady] = useState(false);
 
   useEffect(() => {
     let active = true;
+    const settingsController = new AbortController();
+    fetch(`${import.meta.env.VITE_SUPABASE_URL || 'https://okeinstowfebcxrkawth.supabase.co'}/auth/v1/settings`, {
+      headers: { apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || 'sb_publishable_nLCxU10yFuxsDXKMOp-ulA_xUmpFOO1' },
+      signal: settingsController.signal,
+    }).then(response => response.ok ? response.json() : null).then(settings => {
+      if (active) setGoogleReady(settings?.external?.google === true);
+    }).catch(() => {});
     const params = new URLSearchParams(window.location.hash.slice(1));
     if (params.has('error_description')) {
-      setError('This email link has expired or is invalid. Please request a new one.');
+      setError('Sign-in was cancelled or this link is invalid. Please try signing in again.');
       history.replaceState(null, '', `${location.pathname}#members`);
     }
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, next) => {
@@ -38,7 +46,7 @@ export default function MemberArea() {
       setLoading(false);
       if (sessionError) setError('We couldn’t restore your session. Please sign in again.');
     }).catch(() => { if (active) { setLoading(false); setError('Unable to connect. Please try again.'); } });
-    return () => { active = false; subscription.unsubscribe(); };
+    return () => { active = false; settingsController.abort(); subscription.unsubscribe(); };
   }, []);
 
   function changeMode(next) {
@@ -90,6 +98,20 @@ export default function MemberArea() {
     finally { setBusy(false); }
   }
 
+  async function signInWithGoogle() {
+    if (busy || !googleReady) return;
+    setBusy(true); setError(''); setMessage('');
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: authRedirect, queryParams: { prompt: 'select_account' } },
+      });
+      if (error) throw error;
+    } catch {
+      setError('Unable to open Google sign-in. Please try again.');
+    } finally { setBusy(false); }
+  }
+
   return <section id="members" className="member-section section-space">
     <div className="shell member-layout">
       <div className="member-intro"><span className="member-icon"><Coffee size={32}/></span><p className="eyebrow">THE JOFEI CREW</p><h2>A familiar face.<br/><em>A place in the crew.</em></h2><p>Make yourself at home. Create your JoFei Cafe member account, or sign in when you’re back in the neighbourhood.</p><div className="member-privacy"><ShieldCheck size={21}/><span>Just your email and password. No school details, birthday, or student ID needed.</span></div></div>
@@ -99,6 +121,11 @@ export default function MemberArea() {
         </> : <>
           {(mode === 'signup' || mode === 'signin') && <div className="member-tabs" aria-label="Account options"><button type="button" aria-pressed={mode === 'signup'} onClick={() => changeMode('signup')} disabled={busy}>Join the crew</button><button type="button" aria-pressed={mode === 'signin'} onClick={() => changeMode('signin')} disabled={busy}>Sign in</button></div>}
           <h3>{titles[mode]}</h3>
+          {(mode === 'signup' || mode === 'signin') && <>
+            <button type="button" className="google-signin" onClick={signInWithGoogle} disabled={busy || !googleReady} aria-describedby={!googleReady ? 'google-setup-note' : undefined}><span aria-hidden="true" className="google-letter">G</span>Continue with Google</button>
+            {!googleReady && <p id="google-setup-note" className="field-help">Google sign-in is coming soon.</p>}
+            <div className="member-divider"><span>or use email</span></div>
+          </>}
           <form onSubmit={submit}>
             {mode !== 'update' && <label htmlFor="member-email">Email address<input id="member-email" name="email" type="email" autoComplete="email" required maxLength={254} value={email} onChange={e => setEmail(e.target.value)} disabled={busy}/></label>}
             {mode !== 'reset' && <label htmlFor="member-password">{mode === 'update' ? 'New password' : 'Password'}<input id="member-password" name="password" type="password" autoComplete={mode === 'signin' ? 'current-password' : 'new-password'} required minLength={mode === 'signin' ? 1 : 10} maxLength={128} value={password} onChange={e => setPassword(e.target.value)} disabled={busy}/>{mode !== 'signin' && <span className="field-help">At least 10 characters. Use a unique password.</span>}</label>}
