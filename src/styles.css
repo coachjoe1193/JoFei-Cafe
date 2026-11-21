@@ -113,8 +113,5 @@ dl { font-size: 12px; margin: 0; }dl > div { display: flex; justify-content: spa
 .member-fineprint { font-size: 13px; color: #665b77; line-height: 1.65; margin: 22px 0 0; }
 .member-message,.member-error { font-size: 14px; padding: 13px; border-radius: 8px; margin: 20px 0 0; }.member-message { background: #e3f1e9; color: #21513e; }.member-error { background: #fbe9e9; color: #8c283a; }
 .member-email { overflow-wrap: anywhere; }
-.google-signin { display: flex; width: 100%; justify-content: center; align-items: center; gap: 14px; background: #fff; border: 1px solid #aa9abf; color: #34264e; border-radius: 30px; padding: 13px 18px; font-size: 16px; font-weight: 600; }
-.google-signin:hover:not(:disabled) { background: #eaf2fb; }.google-letter { color: #4285f4; font: bold 23px Arial,sans-serif; }
-.member-divider { display: flex; align-items: center; gap: 15px; margin: 22px 0; color: #665b77; font-size: 14px; }.member-divider:before,.member-divider:after { content: ''; height: 1px; background: #d5cce1; flex: 1; }
 @media(max-width:900px) { .member-layout { gap: 30px; }.desktop-nav { gap: 18px; } }
 @media(max-width:760px) { .member-layout { grid-template-columns: 1fr; gap: 30px; }.member-panel { padding: 24px; }.member-panel h3 { font-size: 28px; } }
